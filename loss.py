@@ -19,7 +19,7 @@ def yolo_loss(predict,
   Args:
     predict: 3 - D tensor[cell_size, cell_size, num_classes + 5 * boxes_per_cell]
     labels: 2-D list [object_num, 5] (xcenter (Absolute coordinate), ycenter (Absolute coordinate), w (Absolute coordinate), h (Absolute coordinate), class_num)
-    object_num: each_object number in image
+    each_object_num: each_object number in image
     num_classes: number of classes
     boxes_per_cell: number of prediction boxes per each cell
     cell_size: each cell size
@@ -31,6 +31,10 @@ def yolo_loss(predict,
     class_scale : coefficient for class loss
   Returns:
     total_loss: coord_loss  + object_loss + noobject_loss + class_loss
+    coord_loss
+    object_loss
+    noobject_loss
+    class_loss
   '''
 
   # parse only coordinate vector
