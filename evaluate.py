@@ -73,8 +73,8 @@ def main(_):
     ckpt.restore(latest_ckpt)
     print('global_step : {}, checkpoint is restored!'.format(int(ckpt.step)))
 
-  #for epoch in range(num_epochs):
-  num_batch = len(list(test_data))
+  num_images = len(list(test_data))  # batch_size = 1
+  print('total test image :', num_images)
   for image_num, features in enumerate(test_data):
     batch_image = features['image']
     batch_bbox = features['objects']['bbox']
