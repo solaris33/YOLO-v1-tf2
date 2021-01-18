@@ -17,7 +17,7 @@ def yolo_loss(predict,
               ):
   '''
   Args:
-    predict: 3 - D tensor[cell_size, cell_size, num_classes + 5 * boxes_per_cell]
+    predict: 3 - D tensor [cell_size, cell_size, num_classes + 5 * boxes_per_cell]
     labels: 2-D list [object_num, 5] (xcenter (Absolute coordinate), ycenter (Absolute coordinate), w (Absolute coordinate), h (Absolute coordinate), class_num)
     each_object_num: each_object number in image
     num_classes: number of classes
@@ -90,7 +90,7 @@ def yolo_loss(predict,
   object_loss = tf.nn.l2_loss(object_exists_cell * best_box_mask * (pred_C - C)) * object_scale
 
   # noobject_loss
-  noobject_loss = tf.nn.l2_loss((1 - object_exists_cell) * (pred_C - C)) * noobject_scale
+  noobject_loss = tf.nn.l2_loss((1 - object_exists_cell) * (pred_C)) * noobject_scale
 
   # class loss
   class_loss = tf.nn.l2_loss(object_exists_cell * (pred_P - P)) * class_scale
