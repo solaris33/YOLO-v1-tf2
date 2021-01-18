@@ -28,8 +28,8 @@ def process_each_ground_truth(original_image,
     original_image : (original_height, orignal_width, channel) image tensor
     bbox : (max_object_num_in_batch, 4) = (ymin / height, xmin / width, ymax / height, xmax / width)
     class_labels : (max_object_num_in_batch) = class labels without one-hot-encoding
-    input_width : original input width
-    input_height : original input height
+    input_width : yolo input width
+    input_height : yolo input height
   Returns:
     image: (resized_height, resized_width, channel) image ndarray
     labels: 2-D list [object_num, 5] (xcenter (Absolute Coordinate), ycenter (Absolute Coordinate), w (Absolute Coordinate), h (Absolute Coordinate), class_num)
